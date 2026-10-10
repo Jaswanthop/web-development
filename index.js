@@ -22,3 +22,14 @@ function toggle() {
     document.getElementById("gender").textContent = user.gender;
     document.getElementById("image").src = user.image;
 }
+
+function randomUser() {
+    fetch("https://randomuser.me/api/")
+        .then(response => response.json())
+        .then(data => {
+            const user = data.results[0];
+            document.getElementById("name").textContent = `${user.name.first} ${user.name.last}`;
+            document.getElementById("gender").textContent = user.gender;
+            document.getElementById("image").src = user.picture.large;
+        })
+    }
